@@ -83,40 +83,40 @@
                         <li class="nav-item ">
                             
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
+                                <a href="/barangmasuk">
                                     Dashboard
                                     <!-- <span class="right badge badge-danger">New</span> -->
-                                </p>
+                                </a>
                             </a>
                         </li>
 
                         <li class="nav-item">
                 
                                 <i class="nav-icon far fa-envelope"></i>
-                                <p>
+                                <a href="/barangmasuk">
                                     Barang Masuk
                                     <!-- <span class="right badge badge-danger">New</span> -->
-                                </p>
+                                </a>
                             </a>
                         </li>
                        
                             <li class="nav-item">
                             
                                     <i class="nav-icon far fa-paper-plane"></i>
-                                    <p>
+                                    <a href="/barangkeluar">
                                         Barang Keluar
                                         <!-- <span class="right badge badge-danger">New</span> -->
-                                    </p>
+                                    </a>
                                 </a>
                             </li>
 
                             <li class="nav-item">
                             
                                 <i class="nav-icon far fa-paper-plane"></i>
-                                <p>
+                                <a href="/pesanan">
                                     Pesanan
                                     <!-- <span class="right badge badge-danger">New</span> -->
-                                </p>
+                                </a>
                             </a>
                         </li>
                             
