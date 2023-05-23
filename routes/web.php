@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('pesanan', [PesananController::class, 'index'])->name('pesanan');
     Route::get('pesanan/create', [PesananController::class, 'create'])->name('pesanan.create');
-    Route::post('pesanan.store', [PesananController::class, 'store'])->name('barangkeluar.store');
+    Route::post('pesanan.store', [PesananController::class, 'store'])->name('pesanan.store');
     Route::delete('pesanan/destroy/{id}', [PesananController::class, 'destroy'])->name('pesanan.destroy');
     Route::get('pesanan/edit/{id}', [PesananController::class, 'edit'])->name('pesanan.edit');
     Route::patch('pesanan/update/{id}', [PesananController::class, 'update'])->name('pesanan.update');
