@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\PesananController;
+use App\Http\Controllers\StokController;
+
 use App\Http\Controllers\ManajemenAkunController;
 
 /*
@@ -48,6 +50,8 @@ Route::middleware(['auth'])->group(function(){
     Route::delete('pesanan/destroy/{id}', [PesananController::class, 'destroy'])->name('pesanan.destroy');
     Route::get('pesanan/edit/{id}', [PesananController::class, 'edit'])->name('pesanan.edit');
     Route::patch('pesanan/update/{id}', [PesananController::class, 'update'])->name('pesanan.update');
+
+    Route::get('stok', [StokController::class, 'index'])->name('stok');
 });
    
 

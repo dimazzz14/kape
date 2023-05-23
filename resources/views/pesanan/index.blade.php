@@ -26,7 +26,7 @@
                     <th class="align-middle">Jenis</th>
                     <th class="align-middle">Ukuran</th>
                     <th class="align-middle">Jumlah</th>
-                    <th class="align-middle">aksi</th>
+                    <th class="align-middle">Aksi</th>
                 </thead>
                 <tbody>
                     @foreach ($pesanan as $index => $item)

@@ -11,8 +11,6 @@
     
     <div class="card p-2" style="font-size: 12px">
             <div class="m-2 d-flex justify-content-end">
-                <a type="button" class="btn btn-primary btn-sm" href="{{ url('barangmasuk/create') }}"><i
-                        class="fas fa-plus"></i> Tambah</a>
             </div>
         <div class="col-md">
             <table class="table table-sm table-bordered table-hover text-center" id="myTable">
@@ -24,30 +22,19 @@
                     <th class="align-middle">Jenis</th>
                     <th class="align-middle">Ukuran </th>
                     <th class="align-middle">Jumlah</th>
-                    <th class="align-middle">Pengirim</th>
-                    <th class="align-middle">Aksi</th>
                 </thead>
                 <tbody>
-                    @foreach ($barangmasuk as $index => $item)
+                    @foreach ($stok as $index => $item)
                             <tr>
                                 <td class="align-middle">{{ $index + 1 }}</td>
-                                <td class="align-middle">{{ $item->tgl_barang_masuk }}</td>
-                                <td class="align-middle">{{ $item->nomor_barang_masuk }}</td>
-                                <td class="align-middle">{{ $item->nama_barang_masuk }}</td>
-                                <td class="align-middle">{{ $item->jenis_masuk }}</td>
-                                <td class="align-middle">{{ $item->ukuran_masuk }}</td>
-                                <td class="align-middle">{{ $item->jumlah_masuk }}</td>
-                                <td class="align-middle">{{ $item->pengirim }}</td>
+                                <td class="align-middle">{{ $item->tgl_stok }}</td>
+                                <td class="align-middle">{{ $item->nomor_stok }}</td>
+                                <td class="align-middle">{{ $item->nama_stok }}</td>
+                                <td class="align-middle">{{ $item->jenis_stok }}</td>
+                                <td class="align-middle">{{ $item->ukuran_stok }}</td>
+                                <td class="align-middle">{{ $item->jumlah_stok }}</td>
                                 <td class="d-flex align-items-center justify-content-center">
-                                <a class="text-white btn btn-primary btn-sm"
-                                    href="{{ route('barangmasuk.edit', $item->id) }}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <form action="{{ route('barangmasuk.destroy', $item->id) }}" method="POST">
-                                @csrf
-                                @method('DElETE')
-                                <button class="btn btn-danger btn-sm mx-1" type="submit"><i class="fas fa-trash"></i></button>
-                                </form>
+                                <a class="text-white btn btn-primary btn-sm"></a>
                                 </td>
                             </tr>   
                     @endforeach

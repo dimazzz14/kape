@@ -26,7 +26,7 @@
                     <th class="align-middle">Jumlah</th>
                     <th class="align-middle">Penerima</th>
                     <th class="align-middle">Status</th>
-                    <th class="align-middle">aksi</th>
+                    <th class="align-middle">Aksi</th>
                 </thead>
                 <tbody>
                     @foreach ($barangkeluar as $index => $item)

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PT Tuntunan Cahaya</title>
+    <title>PT Tuntunan Cahaya | </title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="shortcut icon" href="{{ asset('../../vendors/dist/img/logotc.png') }}">
@@ -39,16 +39,26 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
                 </li>
-                
+                <li class="nav-item">
+                    <span class="nav-link">Selamat Datang, <b> {{ Auth::user()->nama }}</b></span>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+
                 <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <b><i class="fas fa-user-circle fa-lg"></i> {{ Auth::user()->nama }} <i
+                                class="fas fa-caret-down"></i> </b>
+                    </a>
                   
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="width: 200px">
                         <div class="text-center">
                             <!-- Message Start -->
                             <div class="media">
                                 <div class="media-body">
+                                    <b class="dropdown-item-title" style="font-size: 20px;">
+                                        {{ Auth::user()->nama }}
+                                    </b>
                                    
                                 </div>
                             </div>
@@ -83,7 +93,7 @@
                         <li class="nav-item ">
                             
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <a href="/barangmasuk">
+                                <a href="/stok">
                                     Dashboard
                                     <!-- <span class="right badge badge-danger">New</span> -->
                                 </a>
