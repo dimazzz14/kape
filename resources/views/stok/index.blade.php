@@ -8,6 +8,7 @@
 @endsection
 
 @section('content')
+    <h2 class="m-0">Data stok</h2>
     
     <div class="card p-2" style="font-size: 12px">
             <div class="m-2 d-flex justify-content-end">

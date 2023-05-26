@@ -8,8 +8,6 @@ use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\StokController;
 
-use App\Http\Controllers\ManajemenAkunController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +20,7 @@ use App\Http\Controllers\ManajemenAkunController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 
@@ -30,6 +28,7 @@ Route::get('/', function () {
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
+
 
 Route::middleware(['auth'])->group(function(){
     Route::get('barangmasuk', [BarangMasukController::class, 'index'])->name('barangmasuk.index');
@@ -54,6 +53,7 @@ Route::middleware(['auth'])->group(function(){
     Route::patch('pesanan/update/{id}', [PesananController::class, 'update'])->name('pesanan.update');
 
     Route::get('stok', [StokController::class, 'index'])->name('stok.index');
+
 });
    
 

@@ -86,7 +86,7 @@
           <img src="{{ asset('dist/img/avatar.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><b> {{ Auth::user()->nama }}</b></a>
+          <a class="d-block">{{ Auth::user()->nama }}</a>
         </div>
       </div>
 
@@ -115,7 +115,7 @@
               </p>
             </a>
           </li>
-
+          
           <li class="nav-item">
             <a href="{{route('pesanan.index')}}" class="nav-link {{request()->is('pesanan')? 'active':''}}">
               <p>
@@ -124,6 +124,7 @@
               </p>
             </a>
           </li>
+         
 
           <li class="nav-item">
             <a href="{{route('barangmasuk.index')}}" class="nav-link {{request()->is('barangmasuk')? 'active':''}}">
@@ -143,15 +144,6 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="./" class="nav-link">
-              <p>
-                Manajemen Akun
-                <i class="right fas fa"></i>
-              </p>
-            </a>
-          </li>
-
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -166,7 +158,6 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Pencatatan barang masuk dan keluar</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -208,7 +199,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; 2023 Dimas & Nathacia</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.2.0

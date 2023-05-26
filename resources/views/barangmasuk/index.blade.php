@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    
+    <h2 class="m-0">Data barang masuk</h2>  
     <div class="card p-2" style="font-size: 12px">
             <div class="m-2 d-flex justify-content-end">
                 <a type="button" class="btn btn-primary btn-sm" href="{{ url('barangmasuk/create') }}"><i
@@ -24,7 +24,7 @@
                     <th class="align-middle">Jenis</th>
                     <th class="align-middle">Ukuran </th>
                     <th class="align-middle">Jumlah</th>
-                    <th class="align-middle">Pengirim</th>
+                    <th class="align-middle">Pengirim</th> 
                     <th class="align-middle">Aksi</th>
                 </thead>
                 <tbody>

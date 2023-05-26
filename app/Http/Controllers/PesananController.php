@@ -91,7 +91,7 @@ class PesananController extends Controller
             'ukuran' => $data['ukuran'],
             'jumlah' => $data['jumlah']
         ]);
-        return redirect()->route('pesanan');
+        return redirect()->route('pesanan.index');
     }
 
     /**
@@ -104,7 +104,7 @@ class PesananController extends Controller
     {
         $pesanan = Pesanan::find($id);
         $pesanan->delete();
-        return redirect()->route('pesanan');
+        return redirect()->route('pesanan.index');
     }
 
 }

@@ -8,7 +8,9 @@
 @endsection
 
 @section('content')
-    
+    <h2 class="m-0">Data barang keluar</h2>
+    {{-- @if (auth()->user()->level=="marketing")
+    @endif    --}}
     <div class="card p-2" style="font-size: 12px">
             <div class="m-2 d-flex justify-content-end">
                 <a type="button" class="btn btn-primary btn-sm" href="{{ url('barangkeluar/create') }}"><i
@@ -25,7 +27,7 @@
                     <th class="align-middle">Ukuran </th>
                     <th class="align-middle">Jumlah</th>
                     <th class="align-middle">Penerima</th>
-                    <th class="align-middle">Status</th>
+                    <th class="align-middle">Status</th> 
                     <th class="align-middle">Aksi</th>
                 </thead>
                 <tbody>
@@ -42,8 +44,8 @@
                                 <td class="align-middle">{{ $item->status }}</td>
                                 <td class="d-flex align-items-center justify-content-center">
                                 <a class="text-white btn btn-primary btn-sm"
-                                    href="{{ route('barangkeluar.edit', $item->id) }}">
-                                    <i class="fas fa-edit"></i>
+                                href="{{ route('barangkeluar.edit', $item->id) }}">
+                                <i class="fas fa-edit"></i>
                                 </a>
                                 <form action="{{ route('barangkeluar.destroy', $item->id) }}" method="POST">
                                 @csrf

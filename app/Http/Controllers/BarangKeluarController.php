@@ -91,7 +91,7 @@ class BarangKeluarController extends Controller
             'penerima' => $data['penerima'],
             'status' => $data['status']
         ]);
-        return redirect()->route('barangkeluar');
+        return redirect()->route('barangkeluar.index');
     }
 
     /**
@@ -104,7 +104,7 @@ class BarangKeluarController extends Controller
     {
         $barangkeluar = BarangKeluar::find($id);
         $barangkeluar->delete();
-        return redirect()->route('barangkeluar');
+        return redirect()->route('barangkeluar.index');
     }
 
 }

@@ -91,7 +91,7 @@ class BarangMasukController extends Controller
             'jumlah_masuk' => $data['jumlah_masuk'],
             'pengirim' => $data['pengirim']
         ]);
-        return redirect()->route('barangmasuk');
+        return redirect()->route('barangmasuk.index');
     }
 
     /**
@@ -104,7 +104,7 @@ class BarangMasukController extends Controller
     {
         $barangmasuk = BarangMasuk::find($id);
         $barangmasuk->delete();
-        return redirect()->route('barangmasuk');
+        return redirect()->route('barangmasuk.index');
     }
 
    

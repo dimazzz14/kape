@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    
+    <h2 class="m-0">Data pesanan</h2>
     <div class="card p-2" style="font-size: 12px">
             <div class="m-2 d-flex justify-content-end">
                 <a type="button" class="btn btn-primary btn-sm" href="{{ url('pesanan/create') }}"><i
