@@ -43,6 +43,7 @@
                                     href="{{ route('barangmasuk.edit', $item->id) }}">
                                     <i class="fas fa-edit"></i>
                                 </a>
+
                                 <form action="{{ route('barangmasuk.destroy', $item->id) }}" method="POST">
                                 @csrf
                                 @method('DElETE')
