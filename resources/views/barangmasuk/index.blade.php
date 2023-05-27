@@ -19,7 +19,7 @@
                 <thead class="thead-light">
                     <th class="align-middle">No</th>
                     <th class="align-middle">Tanggal Masuk</th>
-                    <th class="align-middle">Nomor Barang</th>
+                    <th class="align-middle">Id Barang</th>
                     <th class="align-middle">Nama Barang</th>
                     <th class="align-middle">Jenis</th>
                     <th class="align-middle">Ukuran </th>

@@ -22,7 +22,7 @@ class CreateBarangKeluar extends Migration
             $table->string('ukuran_keluar');
             $table->integer('jumlah_keluar');
             $table->string('penerima');
-            $table->string('status');
+            $table->enum('status',['On Delivery','Arrive']);
             $table->timestamps();
         });
     }

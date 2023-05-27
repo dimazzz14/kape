@@ -24,7 +24,7 @@
                 name="tgl_pesanan" required>
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Nomor Pesanan</label>
+            <label for="exampleInputEmail1">Id Pesanan</label>
             <input type="text" class="form-control" id="nomor-pesanan" value="{{ old('nomor_pesanan')?? $pesanan->nomor_pesanan  }}"
                 placeholder="" name="nomor_pesanan" required>
         </div>
@@ -34,7 +34,7 @@
                 required name="nama_pemesan">
         </div>
         <div class="form-group">
-            <label for="exampleInputtext1">Nomor Barang</label>
+            <label for="exampleInputtext1">Id Barang</label>
             <input type="text" class="form-control" id="nomor-barang" value="{{ old('nomor_barang')?? $pesanan->nomor_barang  }}"
                 placeholder="" required name="nomor_barang">
         </div>

@@ -22,7 +22,7 @@
             <input type="date" class="form-control" id="tanggal-keluar" placeholder="" name="tgl_barang_keluar" required>
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Nomor Barang</label>
+            <label for="exampleInputEmail1">Id Barang</label>
             <input type="text" class="form-control" id="nomor-keluar" placeholder="" required name="nomor_barang_keluar">
         </div>
         <div class="form-group">
@@ -47,7 +47,10 @@
         </div>
         <div class="form-group">
             <label for="exampleInputtext1">Status</label>
-            <input type="text" class="form-control" id="status-keluar" placeholder="" required name="status">
+            <select class="form-control" id="status-keluar" placeholder="" required name="status">
+                <option value="1">On Delivery</option>
+                <option value="1">Arrive</option>
+            </select>
         </div>
         <div class="d-flex justify-content-end">
             <a href="{{ URL::previous() }}" class="btn btn-warning"> <i class="fas fa-arrow-left"></i> Kembali</a>

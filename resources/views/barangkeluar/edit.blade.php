@@ -24,7 +24,7 @@
                 name="tgl_barang_keluar" required>
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Nomor Barang</label>
+            <label for="exampleInputEmail1">Id Barang</label>
             <input type="text" class="form-control" id="nomor-keluar" value="{{  old('nomor_barang_keluar')?? $barangkeluar->nomor_barang_keluar }}"
                 placeholder="" name="nomor_barang_keluar" required>
         </div>

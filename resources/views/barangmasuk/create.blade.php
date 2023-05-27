@@ -22,7 +22,7 @@
                 <input type="date" class="form-control" id="tanggal-masuk" placeholder="" name="tgl_barang_masuk" required >
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Nomor Barang</label>
+                <label for="exampleInputEmail1">Id Barang</label>
                 <input type="text" class="form-control" id="nomor-masuk" placeholder="" required name="nomor_barang_masuk">
             </div>
             <div class="form-group">

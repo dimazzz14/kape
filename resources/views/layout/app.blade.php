@@ -43,8 +43,8 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="./stok" class="nav-link">Home</a>
+      <li class="nav-item">
+        <span class="nav-link">Halo <b> {{ Auth::user()->nama }}</b>  </span>
       </li>
     </ul>
 
@@ -73,7 +73,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="https://www.tuntunancahaya.com/" class="brand-link">
       <img src="{{ asset('dist/img/tclogo.png') }}" alt="TC Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">PT Tuntunan Cahaya</span>
     </a>
@@ -109,18 +109,18 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="{{route('stok.index')}}" class="nav-link {{request()->is('stok')? 'active':''}}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
-                <i class="right fas fa"></i>
+                Dashboard               
               </p>
             </a>
           </li>
           
           <li class="nav-item">
             <a href="{{route('pesanan.index')}}" class="nav-link {{request()->is('pesanan')? 'active':''}}">
+              <i class="nav-icon far fa-envelope"></i>
               <p>
                 Pesanan
-                <i class="right fas fa"></i>
               </p>
             </a>
           </li>
@@ -128,18 +128,18 @@
 
           <li class="nav-item">
             <a href="{{route('barangmasuk.index')}}" class="nav-link {{request()->is('barangmasuk')? 'active':''}}">
+              <i class="nav-icon fas fa-map-marker-alt"></i>
               <p>
                  Barang Masuk
-                <i class="right fas fa"></i>
               </p>
             </a>
           </li>
 
           <li class="nav-item">
             <a href="{{route('barangkeluar.index')}}" class="nav-link {{request()->is('barangkeluar')? 'active':''}}">
+              <i class="nav-icon far fa-paper-plane"></i>
               <p>
                 Barang Keluar
-                <i class="right fas fa"></i>
               </p>
             </a>
           </li>
