@@ -46,6 +46,7 @@
                 <input type="text" class="form-control" id="pengirim-masuk" placeholder="" required name="pengirim">
             </div>
             <div class="d-flex justify-content-end">
+                <a href="{{ URL::previous() }}" class="btn btn-warning"> <i class="fas fa-arrow-left"></i> Kembali</a>
                 <button type="submit" class="btn btn-primary"  style="width: 100px">Tambah</button>
             </div>
         </form>

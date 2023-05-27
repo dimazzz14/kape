@@ -14,7 +14,7 @@
                 <a type="button" class="btn btn-primary btn-sm" href="{{ url('barangmasuk/create') }}"><i
                         class="fas fa-plus"></i> Tambah</a>
             </div>
-        <div class="col-md">
+        <div class="table-responsive">
             <table class="table table-sm table-bordered table-hover text-center" id="myTable">
                 <thead class="thead-light">
                     <th class="align-middle">No</th>

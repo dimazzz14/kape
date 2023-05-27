@@ -50,6 +50,7 @@
             <input type="text" class="form-control" id="jumlah" placeholder="" required name="jumlah">
         </div>
         <div class="d-flex justify-content-end">
+            <a href="{{ URL::previous() }}" class="btn btn-warning"> <i class="fas fa-arrow-left"></i> Kembali</a>
             <button type="submit" class="btn btn-primary" style="width: 150px"><i class="fas fa-plus"></i> Tambah</button>
         </div>
     </form>

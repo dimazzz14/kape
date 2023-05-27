@@ -13,7 +13,7 @@
     <div class="card p-2" style="font-size: 12px">
             <div class="m-2 d-flex justify-content-end">
             </div>
-        <div class="col-md">
+        <div class="table-responsive">
             <table class="table table-sm table-bordered table-hover text-center" id="myTable">
                 <thead class="thead-light">
                     <th class="align-middle">No</th>
