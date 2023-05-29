@@ -7,6 +7,7 @@ use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\StokController;
+use App\Http\Controllers\KategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,14 @@ Route::middleware(['auth'])->group(function(){
     Route::patch('pesanan/update/{id}', [PesananController::class, 'update'])->name('pesanan.update');
 
     Route::get('stok', [StokController::class, 'index'])->name('stok.index');
+
+    Route::get('kategori', [KategoriController::class, 'index'])->name('kategori.index');
+    Route::get('kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
+    Route::post('kategori.store', [KategoriController::class, 'store'])->name('kategori.store');
+    Route::delete('kategori/destroy/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+    Route::get('kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
+    Route::patch('kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.update');
+
 
 });
    
