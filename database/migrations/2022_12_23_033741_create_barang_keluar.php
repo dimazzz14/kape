@@ -16,7 +16,7 @@ class CreateBarangKeluar extends Migration
         Schema::create('barang_keluar', function (Blueprint $table) {
             $table->id();
             $table->date('tgl_barang_keluar');
-            $table->string('nomor_barang_keluar');
+            $table->integer('nomor_barang_keluar');
             $table->string('nama_barang_keluar');
             $table->string('jenis_keluar');
             $table->string('ukuran_keluar');

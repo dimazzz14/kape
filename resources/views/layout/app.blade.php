@@ -153,6 +153,15 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            {{-- <a href="{{route('kategori.index')}}" class="nav-link {{request()->is('kategori')? 'active':''}}"> --}}
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                Manajemen Akun
+              </p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

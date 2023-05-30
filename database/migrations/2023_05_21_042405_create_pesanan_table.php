@@ -16,9 +16,9 @@ class CreatePesananTable extends Migration
         Schema::create('pesanan', function (Blueprint $table) {
             $table->id();
             $table->date('tgl_pesanan');
-            $table->string('nomor_pesanan');
+            $table->integer('nomor_pesanan');
             $table->string('nama_pemesan');
-            $table->string('nomor_barang');
+            $table->integer('nomor_barang');
             $table->string('nama_barang');
             $table->string('jenis');
             $table->string('ukuran');

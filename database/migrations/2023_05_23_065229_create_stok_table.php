@@ -16,7 +16,7 @@ class CreateStokTable extends Migration
         Schema::create('stok', function (Blueprint $table) {
             $table->id();
             $table->date('tgl_stok');
-            $table->string('nomor_stok');
+            $table->integer('nomor_stok');
             $table->string('nama_stok');
             $table->string('jenis_stok');
             $table->string('ukuran_stok');
