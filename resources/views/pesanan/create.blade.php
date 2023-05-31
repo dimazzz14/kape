@@ -29,18 +29,26 @@
             <label for="exampleInputtext1">Nama Pemesan</label>
             <input type="text" class="form-control" id="nama-pemesan" placeholder="" required name="nama_pemesan">
         </div>
+
         <div class="form-group">
             <label for="exampleInputtext1">Id Barang</label>
-            <input type="text" class="form-control" id="nomor-barang" placeholder="" required name="nomor_barang">
+            <input type="text" class="form-control" id="nama-barang" placeholder="" required name="nama_barang">
         </div>
+
         <div class="form-group">
             <label for="exampleInputtext1">Nama Barang</label>
             <input type="text" class="form-control" id="nama-barang" placeholder="" required name="nama_barang">
         </div>
+
         <div class="form-group">
-            <label for="exampleInputtext1">Jenis</label>
-            <input type="text" class="form-control" id="jenis" placeholder="" required name="jenis">
+            <label for="exampleInputEmail1">Jenis</label>
+            <select name="kategori_id" id="kategori_id" class="form-control" required>
+                @foreach ($kategori as $item)
+                    <option value="{{ $item->nama_kategori}}">{{ $item->nama_kategori }}</option>
+                @endforeach
+            </select>
         </div>
+
         <div class="form-group">
             <label for="exampleInputtext1">Ukuran</label>
             <input type="text" class="form-control" id="ukuran" placeholder="" required name="ukuran">

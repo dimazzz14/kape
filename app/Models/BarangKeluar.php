@@ -19,4 +19,8 @@ class BarangKeluar extends Model
     'penerima',
     'status',
     ];
+
+    public function kategori(){
+        return $this->belongsTo(Kategori::class, 'kategori_id','id');
+    }
 }

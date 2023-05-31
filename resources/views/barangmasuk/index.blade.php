@@ -19,8 +19,9 @@
                 <thead class="thead-light">
                     <th class="align-middle">No</th>
                     <th class="align-middle">Tanggal Masuk</th>
-                    <th class="align-middle">Id Barang</th>
-                    <th class="align-middle">Nama Barang</th>
+                    {{-- <th class="align-middle">Id Barang</th> --}}
+                    <th class="align-middle">kategori</th>
+                    <th class="align-middle">nomor-barang-masuk</th>
                     <th class="align-middle">Jenis</th>
                     <th class="align-middle">Ukuran </th>
                     <th class="align-middle">Jumlah</th>
@@ -32,8 +33,8 @@
                             <tr>
                                 <td class="align-middle">{{ $index + 1 }}</td>
                                 <td class="align-middle">{{ $item->tgl_barang_masuk }}</td>
+                                <td class="align-middle">{{ $item->kategori->jenis }}</td>
                                 <td class="align-middle">{{ $item->nomor_barang_masuk }}</td>
-                                <td class="align-middle">{{ $item->nama_barang_masuk }}</td>
                                 <td class="align-middle">{{ $item->jenis_masuk }}</td>
                                 <td class="align-middle">{{ $item->ukuran_masuk }}</td>
                                 <td class="align-middle">{{ $item->jumlah_masuk }}</td>

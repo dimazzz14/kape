@@ -19,4 +19,8 @@ class Pesanan extends Model
     'ukuran',
     'jumlah',
     ];
+
+    public function kategori(){
+        return $this->belongsTo(Kategori::class, 'kategori_id','id');
+    }
 }

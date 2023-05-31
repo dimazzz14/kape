@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKategoriTable extends Migration
+class CreateStokTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateKategoriTable extends Migration
      */
     public function up()
     {
-        Schema::create('kategori', function (Blueprint $table) {
+        Schema::create('stok', function (Blueprint $table) {
             $table->id();
-            $table->string('nomor_kategori');
-            $table->string('nama_kategori');
-            $table->string('jenis');
+            $table->date('tgl_stok');
+            $table->integer('nomor_stok');
+            $table->string('nama_stok');
+            $table->string('jenis_stok');
+            $table->string('ukuran_stok');
+            $table->integer('jumlah_stok');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateKategoriTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kategori');
+        Schema::dropIfExists('stok');
     }
 }

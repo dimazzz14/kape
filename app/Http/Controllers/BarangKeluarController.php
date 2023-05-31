@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\BarangKeluar;
+use App\Models\Kategori;
 
+use App\Models\BarangKeluar;
 use Illuminate\Http\Request;
 
 class BarangKeluarController extends Controller
@@ -21,8 +22,9 @@ class BarangKeluarController extends Controller
 
     public function create()
     {
+        $kategori=Kategori::all();
         $data['title'] = 'Barang Keluar';
-        return view('barangkeluar.create', $data);
+        return view('barangkeluar.create')->with('kategori',$kategori);
     }
 
     public function store(Request $request)

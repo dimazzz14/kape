@@ -15,8 +15,6 @@ class CreateBarangKeluar extends Migration
     {
         Schema::create('barang_keluar', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('kategori_id');
-            $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade')->onUpdate('cascade');
             $table->date('tgl_barang_keluar');
             $table->integer('nomor_barang_keluar');
             $table->string('nama_barang_keluar');

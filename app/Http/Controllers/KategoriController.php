@@ -9,15 +9,16 @@ class KategoriController extends Controller
 {
     public function index()
     {
-        $kategori = Kategori::all();
-        $data = compact('kategori');
-        return view('kategori.index',$data);
+        $data = Kategori::all();
+        // dd($data);
+        return view('kategori.index')->with('data',$data);
     }
 
     public function create()
     {
+        $kategori=Kategori::all();
         $data['title'] = 'Kategori';
-        return view('kategori.create', $data);
+        return view('kategori.create')->with('kategori',$kategori);
     }
 
     public function store(Request $request)

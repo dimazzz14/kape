@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\BarangMasuk;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -25,17 +26,23 @@ class BarangMasukController extends Controller
 
     public function create()
     {
+        $kategori=Kategori::all();
         $data['title'] = 'Barang Masuk';
-        return view('barangmasuk.create', $data);
+        return view('barangmasuk.create')->with('kategori',$kategori);
     }
+
+
 
     public function store(Request $request)
     {
         $validasi = $request->validate([
             'tgl_barang_masuk' => 'required',
-            'nomor_barang_masuk' => 'required',
-            'nama_barang_masuk' => 'required',
-            'jenis_masuk' => 'required',
+            'kategori_id' => 'required',
+            'nomor_barang_masuk'=>'required',
+            'nama_barang_masuk'=>'required',
+            'jenis_masuk'=>'required',
+            // 'kategori_nama' => 'required',
+            // 'kategori_jenis' => 'required',
             'ukuran_masuk' => 'required',
             'jumlah_masuk' => 'required',
             'pengirim' => 'required',
@@ -43,13 +50,17 @@ class BarangMasukController extends Controller
 
         $simpan = new BarangMasuk();
         $simpan->tgl_barang_masuk = $validasi['tgl_barang_masuk'];
-        $simpan->nomor_barang_masuk = $validasi['nomor_barang_masuk'];
-        $simpan->nama_barang_masuk = $validasi['nama_barang_masuk'];
+        $simpan->kategori_id = $validasi['kategori_id'];
         $simpan->jenis_masuk = $validasi['jenis_masuk'];
+        $simpan->nomor_barang_masuk =$validasi['nomor_barang_masuk'];
+        $simpan->nama_barang_masuk =$validasi['nama_barang_masuk'];
+        // $simpan->nama_kategori = $validasi['kategori_nama'];
+        // $simpan->jenis = $validasi['kategori_jenis'];
         $simpan->ukuran_masuk = $validasi['ukuran_masuk'];
         $simpan->jumlah_masuk = $validasi['jumlah_masuk'];
         $simpan->pengirim = $validasi['pengirim'];
         $simpan->save();
+        // return $request;
         return redirect('barangmasuk');
     }
 

@@ -24,7 +24,7 @@
                     <th class="align-middle">Aksi</th>
                 </thead>
                 <tbody>
-                    @foreach ($kategori as $index => $item)
+                    @foreach ($data as $index => $item)
                             <tr>
                                 <td class="align-middle">{{ $index + 1 }}</td>
                                 <td class="align-middle">{{ $item->nomor_kategori }}</td>

@@ -266,5 +266,14 @@
 <script src="{{ asset('dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('dist/js/pages/dashboard.js')}}"></script>
+<script>
+  document.getElementById('autofillButton').addEventListener('click', function() {
+      var kodeBarangSelect = document.getElementById('nomor_kategori');
+      var selectedKode = nomor_kategoriSelect.options[nomor_kategoriSelect.selectedIndex].value;
+      var selectedNama = namaSelect.options[namaSelect.selectedIndex].text;
+      
+      document.getElementById('nomor_kategori').value = selectedNama;
+  });
+  </script>
 </body>
 </html>

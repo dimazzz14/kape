@@ -15,8 +15,6 @@ class CreatePesananTable extends Migration
     {
         Schema::create('pesanan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('kategori_id');
-            $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade')->onUpdate('cascade');
             $table->date('tgl_pesanan');
             $table->integer('nomor_pesanan');
             $table->string('nama_pemesan');

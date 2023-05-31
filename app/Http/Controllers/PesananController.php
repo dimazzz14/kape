@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Pesanan;
 
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class PesananController extends Controller
@@ -21,8 +22,9 @@ class PesananController extends Controller
 
     public function create()
     {
+        $kategori=Kategori::all();
         $data['title'] = 'Pesanan';
-        return view('pesanan.create', $data);
+        return view('pesanan.create')->with('kategori',$kategori);
     }
 
     public function store(Request $request)
