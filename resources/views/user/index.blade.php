@@ -8,46 +8,34 @@
 @endsection
 
 @section('content')
-    <h2 class="m-0">Data pesanan</h2>
+    <h2 class="m-0">Data user</h2>
     <div class="card p-2" style="font-size: 12px">
             <div class="m-2 d-flex justify-content-end">
-                <a type="button" class="btn btn-primary btn-sm" href="{{ url('pesanan/create') }}"><i
+                <a type="button" class="btn btn-primary btn-sm" href="{{ url('user/create') }}"><i
                         class="fas fa-plus"></i> Tambah</a>
             </div>
         <div class="table-responsive">
             <table class="table table-sm table-bordered table-hover text-center" id="myTable">
                 <thead class="thead-light">
                     <th class="align-middle">No</th>
-                    <th class="align-middle">Tanggal Pesanan</th>
-                    <th class="align-middle">Id Pesanan</th>
-                    <th class="align-middle">Nama Pemesan</th>
-                    <th class="align-middle">Id Barang</th>
-                    <th class="align-middle">Nama Barang </th>
-                    <th class="align-middle">Jenis</th>
-                    <th class="align-middle">Ukuran</th>
-                    <th class="align-middle">Jumlah</th>
-                    <th class="align-middle">Keterangan</th>
+                    <th class="align-middle">Nama</th>
+                    <th class="align-middle">Email</th>
+                    <th class="align-middle">Password</th>
                     <th class="align-middle">Aksi</th>
                 </thead>
                 <tbody>
-                    @foreach ($pesanan as $index => $item)
+                    @foreach ($user as $index => $item)
                             <tr>
                                 <td class="align-middle">{{ $index + 1 }}</td>
-                                <td class="align-middle">{{ $item->tgl_pesanan }}</td>
-                                <td class="align-middle">{{ $item->nomor_pesanan }}</td>
-                                <td class="align-middle">{{ $item->nama_pemesan }}</td>
-                                <td class="align-middle">{{ $item->nomor_barang}}</td>
-                                <td class="align-middle">{{ $item->nama_barang }}</td>
-                                <td class="align-middle">{{ $item->kategori->jenis }}</td>
-                                <td class="align-middle">{{ $item->ukuran }}</td>
-                                <td class="align-middle">{{ $item->jumlah }}</td>
-                                <td class="align-middle">{{ $item->jenis }}</td>
+                                <td class="align-middle">{{ $item->nama }}</td>
+                                <td class="align-middle">{{ $item->email }}</td>
+                                <td class="align-middle">{{ $item->password}}</td>
                                 <td class="d-flex align-items-center justify-content-center">
                                 <a class="text-white btn btn-primary btn-sm"
-                                    href="{{ route('pesanan.edit', $item->id) }}">
+                                    href="{{ route('user.edit', $item->id) }}">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form action="{{ route('pesanan.destroy', $item->id) }}" method="POST">
+                                <form action="{{ route('user.destroy', $item->id) }}" method="POST">
                                 @csrf
                                 @method('DElETE')
                                 <button class="btn btn-danger btn-sm mx-1" type="submit"><i class="fas fa-trash"></i></button>

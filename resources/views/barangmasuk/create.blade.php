@@ -28,29 +28,25 @@
             </div> --}}
 
             <div class="form-group">
-                <label for="exampleInputtext1">Nama Barang</label>
-                <input type="text" class="form-control" id="nama_barang_masuk" placeholder="" required name="nama_barang_masuk">
+                <label for="exampleInputtext1">Id Barang</label>
+                <input type="text" class="form-control" id="nama_barang_masuk" placeholder="" required name="nomor_barang_masuk">
             </div>
 
-            @dd($kategori)
+            {{-- @dd($kategori) --}}
 
             <div class="form-group">
-                <label for="exampleInputEmail">kategori_id</label>
-                <select name="kategori_id" id="kategori_id" class="form-control" required>
+                <label for="exampleInputtext1">Nama Barang</label>
+                <input type="text" class="form-control" id="nama-barang-masuk" placeholder="" required name="nama_barang_masuk">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail">Jenis</label>
+                <select name="kategori_id" id="kategori_id" class="form-control" required name="jenis_masuk">
                     @foreach ($kategori as $item)
                         <option value="{{ $item->id}}">{{ $item->jenis }}</option>
                     @endforeach
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputtext1">jenis_masuk</label>
-                <input type="text" class="form-control" id="nomor-barang-masuk" placeholder="" required name="jenis_masuk">
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputtext1">nomor_barang</label>
-                <input type="text" class="form-control" id="nomor-barang-masuk" placeholder="" required name="nomor_barang_masuk">
-            </div>
+            </div>        
 
             <div class="form-group">
                 <label for="exampleInputtext1">Ukuran</label>
@@ -65,6 +61,12 @@
                 <label for="exampleInputtext1">Pengirim</label>
                 <input type="text" class="form-control" id="pengirim-masuk" placeholder="" required name="pengirim">
             </div>
+
+            <div class="form-group">
+                <label for="exampleInputtext1">Keterangan</label>
+                <input type="text" class="form-control" id="nomor-barang-masuk" placeholder="" required name="jenis_masuk">
+            </div>
+
             <div class="d-flex justify-content-end">
                 <a href="{{ URL::previous() }}" class="btn btn-warning"> <i class="fas fa-arrow-left"></i> Kembali</a>
                 <button type="submit" class="btn btn-primary"  style="width: 100px">Tambah</button>

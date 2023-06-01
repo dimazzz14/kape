@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Pesanan;
 
+use App\Models\Pesanan;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+
 
 class PesananController extends Controller
 {
@@ -33,6 +36,7 @@ class PesananController extends Controller
             'tgl_pesanan' => 'required',
             'nomor_pesanan' => 'required',
             'nama_pemesan' => 'required',
+            'kategori_id' => 'required',
             'nomor_barang' => 'required',
             'nama_barang' => 'required',
             'jenis' => 'required',
@@ -45,6 +49,7 @@ class PesananController extends Controller
         $simpan->nomor_pesanan = $validasi['nomor_pesanan'];
         $simpan->nama_pemesan = $validasi['nama_pemesan'];
         $simpan->nama_barang = $validasi['nama_barang'];
+        $simpan->kategori_id = $validasi['kategori_id'];
         $simpan->nomor_barang = $validasi['nomor_barang'];
         $simpan->jenis = $validasi['jenis'];
         $simpan->ukuran = $validasi['ukuran'];

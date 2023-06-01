@@ -33,11 +33,16 @@
             <input type="text" class="form-control" id="barang-keluar" value="{{  old('nama_barang_keluar')?? $barangkeluar->nama_barang_keluar }}" placeholder=""
                 required name="nama_barang_keluar">
         </div>
+
         <div class="form-group">
-            <label for="exampleInputtext1">Jenis</label>
-            <input type="text" class="form-control" id="jenis-keluar" value="{{  old('jenis_keluar')?? $barangkeluar->jenis_keluar }}"
-                placeholder="" required name="jenis_keluar">
+            <label for="exampleInputEmail1">Jenis</label>
+            <select name="kategori_id" id="kategori_id" class="form-control" required>
+                @foreach ($kategori as $item)
+                    <option value="{{ $item->id}}">{{ $item->jenis }}</option>
+                @endforeach
+            </select>
         </div>
+
         <div class="form-group">
             <label for="exampleInputtext1">Ukuran</label>
             <input type="text" class="form-control" id="ukuran-keluar" placeholder="" required name="ukuran_keluar" value="{{  old('ukuran_keluar')?? $barangkeluar->ukuran_keluar }}">
@@ -52,9 +57,20 @@
             <input type="text" class="form-control" id="penerima-keluar" value="{{ old('penerima')?? $barangkeluar->penerima}}"
                 placeholder="" required name="penerima">
         </div>
+
         <div class="form-group">
             <label for="exampleInputtext1">Status</label>
-            <input type="text" class="form-control" id="status-keluar" placeholder="" required name="status" value="{{ old('status')?? $barangkeluar->status}}">
+            <select class="form-control" id="status-keluar" value="{{ old('status')?? $barangkeluar->status}}" placeholder="" required name="status">
+                <option value="1">On Delivery</option>
+                <option value="1">Arrive</option>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <label for="exampleInputtext1">Keterangan</label>
+            <input type="text" class="form-control" id="jenis-keluar" value="{{  old('jenis_keluar')?? $barangkeluar->jenis_keluar }}"
+                placeholder="" required name="jenis_keluar">
         </div>
 
         

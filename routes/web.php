@@ -62,6 +62,13 @@ Route::middleware(['auth'])->group(function(){
     Route::get('kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
     Route::patch('kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.update');
 
+    Route::get('user', [UserController::class, 'index'])->name('user.index');
+    Route::get('user/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('user.store', [UserController::class, 'store'])->name('user.store');
+    Route::delete('user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    Route::get('user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+    Route::patch('user/update/{id}', [UserController::class, 'update'])->name('user.update');
+
 
 });
    

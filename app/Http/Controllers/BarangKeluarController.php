@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Kategori;
 
+use App\Models\Kategori;
 use App\Models\BarangKeluar;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+
 
 class BarangKeluarController extends Controller
 {
@@ -31,6 +34,7 @@ class BarangKeluarController extends Controller
     {
         $validasi = $request->validate([
             'tgl_barang_keluar' => 'required',
+            'kategori_id' => 'required',
             'nomor_barang_keluar' => 'required',
             'nama_barang_keluar' => 'required',
             'jenis_keluar' => 'required',
@@ -42,6 +46,7 @@ class BarangKeluarController extends Controller
 
         $simpan = new BarangKeluar();
         $simpan->tgl_barang_keluar = $validasi['tgl_barang_keluar'];
+        $simpan->kategori_id = $validasi['kategori_id'];
         $simpan->nomor_barang_keluar = $validasi['nomor_barang_keluar'];
         $simpan->nama_barang_keluar = $validasi['nama_barang_keluar'];
         $simpan->jenis_keluar = $validasi['jenis_keluar'];
@@ -75,6 +80,7 @@ class BarangKeluarController extends Controller
         $barangkeluar = BarangKeluar::find($id);
         $data = $request->validate([
             'tgl_barang_keluar' => 'required',
+            'kategori_id' => 'required',
             'nomor_barang_keluar' => 'required',
             'nama_barang_keluar' => 'required',
             'jenis_keluar' => 'required',
@@ -85,6 +91,7 @@ class BarangKeluarController extends Controller
         ]);
         $barangkeluar->update([
             'tgl_barang_keluar' => $data['tgl_barang_keluar'],
+            'kategori_id' => $data['kategori_id'],
             'nomor_barang_keluar' => $data['nomor_barang_keluar'],
             'nama_barang_keluar' => $data['nama_barang_keluar'],
             'jenis_keluar' => $data['jenis_keluar'],

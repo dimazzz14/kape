@@ -117,6 +117,15 @@
           </li>
           
           <li class="nav-item">
+            <a href="{{route('kategori.index')}}" class="nav-link {{request()->is('kategori')? 'active':''}}">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Kategori
+              </p>
+            </a>
+          </li>
+         
+          <li class="nav-item">
             <a href="{{route('pesanan.index')}}" class="nav-link {{request()->is('pesanan')? 'active':''}}">
               <i class="nav-icon far fa-envelope"></i>
               <p>
@@ -124,7 +133,6 @@
               </p>
             </a>
           </li>
-         
 
           <li class="nav-item">
             <a href="{{route('barangmasuk.index')}}" class="nav-link {{request()->is('barangmasuk')? 'active':''}}">
@@ -145,16 +153,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{route('kategori.index')}}" class="nav-link {{request()->is('kategori')? 'active':''}}">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Kategori
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            {{-- <a href="{{route('kategori.index')}}" class="nav-link {{request()->is('kategori')? 'active':''}}"> --}}
+            <a href="{{route('user.index')}}" class="nav-link {{request()->is('user')? 'active':''}}">
               <i class="nav-icon far fa-user"></i>
               <p>
                 Manajemen Akun

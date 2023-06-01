@@ -18,7 +18,7 @@ class CreateBarangKeluar extends Migration
             $table->unsignedBigInteger('kategori_id');
             $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade')->onUpdate('cascade');
             $table->date('tgl_barang_keluar');
-            $table->integer('nomor_barang_keluar');
+            $table->string('nomor_barang_keluar');
             $table->string('nama_barang_keluar');
             $table->string('jenis_keluar');
             $table->string('ukuran_keluar');

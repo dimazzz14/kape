@@ -18,7 +18,7 @@ class CreateBarangMasuk extends Migration
             $table->unsignedBigInteger('kategori_id');
             $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade')->onUpdate('cascade');
             $table->date('tgl_barang_masuk');
-            $table->integer('nomor_barang_masuk');
+            $table->string('nomor_barang_masuk');
             $table->string('nama_barang_masuk');
             $table->string('jenis_masuk');
             $table->string('ukuran_masuk');

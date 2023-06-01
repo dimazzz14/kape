@@ -36,7 +36,7 @@
             <label for="exampleInputEmail1">Jenis</label>
             <select name="kategori_id" id="kategori_id" class="form-control" required>
                 @foreach ($kategori as $item)
-                    <option value="{{ $item->nama_kategori}}">{{ $item->nama_kategori }}</option>
+                    <option value="{{ $item->id}}">{{ $item->jenis }}</option>
                 @endforeach
             </select>
         </div>
@@ -54,6 +54,7 @@
             <label for="exampleInputtext1">Penerima</label>
             <input type="text" class="form-control" id="penerima-keluar" placeholder="" required name="penerima">
         </div>
+        
         <div class="form-group">
             <label for="exampleInputtext1">Status</label>
             <select class="form-control" id="status-keluar" placeholder="" required name="status">
@@ -61,6 +62,12 @@
                 <option value="1">Arrive</option>
             </select>
         </div>
+
+        <div class="form-group">
+            <label for="exampleInputtext1">Keterangan</label>
+            <input type="text" class="form-control" id="nomor-barang-keluar" placeholder="" required name="jenis_keluar">
+        </div>
+
         <div class="d-flex justify-content-end">
             <a href="{{ URL::previous() }}" class="btn btn-warning"> <i class="fas fa-arrow-left"></i> Kembali</a>
             <button type="submit" class="btn btn-primary" style="width: 150px"><i class="fas fa-plus"></i> Tambah</button>

@@ -19,26 +19,28 @@
                 <thead class="thead-light">
                     <th class="align-middle">No</th>
                     <th class="align-middle">Tanggal Masuk</th>
-                    {{-- <th class="align-middle">Id Barang</th> --}}
-                    <th class="align-middle">kategori</th>
-                    <th class="align-middle">nomor-barang-masuk</th>
+                    <th class="align-middle">Id Barang</th>
+                    <th class="align-middle">Nama Barang</th>
                     <th class="align-middle">Jenis</th>
                     <th class="align-middle">Ukuran </th>
                     <th class="align-middle">Jumlah</th>
                     <th class="align-middle">Pengirim</th> 
+                    <th class="align-middle">Keterangan</th>
                     <th class="align-middle">Aksi</th>
+
                 </thead>
                 <tbody>
                     @foreach ($barangmasuk as $index => $item)
                             <tr>
                                 <td class="align-middle">{{ $index + 1 }}</td>
                                 <td class="align-middle">{{ $item->tgl_barang_masuk }}</td>
-                                <td class="align-middle">{{ $item->kategori->jenis }}</td>
                                 <td class="align-middle">{{ $item->nomor_barang_masuk }}</td>
-                                <td class="align-middle">{{ $item->jenis_masuk }}</td>
+                                <td class="align-middle">{{ $item->nama_barang_masuk }}</td>
+                                <td class="align-middle">{{ $item->kategori->jenis }}</td>                              
                                 <td class="align-middle">{{ $item->ukuran_masuk }}</td>
                                 <td class="align-middle">{{ $item->jumlah_masuk }}</td>
                                 <td class="align-middle">{{ $item->pengirim }}</td>
+                                <td class="align-middle">{{ $item->jenis_masuk }}</td>
                                 <td class="d-flex align-items-center justify-content-center">
                                 <a class="text-white btn btn-primary btn-sm"
                                     href="{{ route('barangmasuk.edit', $item->id) }}">

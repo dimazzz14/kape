@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
+use App\Models\Stok;
 use App\Models\BarangMasuk;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -41,8 +42,6 @@ class BarangMasukController extends Controller
             'nomor_barang_masuk'=>'required',
             'nama_barang_masuk'=>'required',
             'jenis_masuk'=>'required',
-            // 'kategori_nama' => 'required',
-            // 'kategori_jenis' => 'required',
             'ukuran_masuk' => 'required',
             'jumlah_masuk' => 'required',
             'pengirim' => 'required',
@@ -54,13 +53,12 @@ class BarangMasukController extends Controller
         $simpan->jenis_masuk = $validasi['jenis_masuk'];
         $simpan->nomor_barang_masuk =$validasi['nomor_barang_masuk'];
         $simpan->nama_barang_masuk =$validasi['nama_barang_masuk'];
-        // $simpan->nama_kategori = $validasi['kategori_nama'];
-        // $simpan->jenis = $validasi['kategori_jenis'];
         $simpan->ukuran_masuk = $validasi['ukuran_masuk'];
         $simpan->jumlah_masuk = $validasi['jumlah_masuk'];
         $simpan->pengirim = $validasi['pengirim'];
         $simpan->save();
-        // return $request;
+
+        
         return redirect('barangmasuk');
     }
 

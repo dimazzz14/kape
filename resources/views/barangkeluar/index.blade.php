@@ -28,6 +28,7 @@
                     <th class="align-middle">Jumlah</th>
                     <th class="align-middle">Penerima</th>
                     <th class="align-middle">Status</th> 
+                    <th class="align-middle">Keterangan</th> 
                     <th class="align-middle">Aksi</th>
                 </thead>
                 <tbody>
@@ -37,11 +38,12 @@
                                 <td class="align-middle">{{ $item->tgl_barang_keluar }}</td>
                                 <td class="align-middle">{{ $item->nomor_barang_keluar }}</td>
                                 <td class="align-middle">{{ $item->nama_barang_keluar }}</td>
-                                <td class="align-middle">{{ $item->jenis_keluar }}</td>
+                                <td class="align-middle">{{ $item->kategori->jenis }}</td>
                                 <td class="align-middle">{{ $item->ukuran_keluar }}</td>
                                 <td class="align-middle">{{ $item->jumlah_keluar }}</td>
                                 <td class="align-middle">{{ $item->penerima }}</td>
                                 <td class="align-middle">{{ $item->status }}</td>
+                                <td class="align-middle">{{ $item->jenis_keluar }}</td>
                                 <td class="d-flex align-items-center justify-content-center">
                                 <a class="text-white btn btn-primary btn-sm"
                                 href="{{ route('barangkeluar.edit', $item->id) }}">

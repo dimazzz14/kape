@@ -10,6 +10,81 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     
+    public function index()
+    {
+        $user = User::all();
+        $data = compact('user');
+        return view('user.index',$data);
+    }
+
+    public function create()
+    {
+        $user=User::all();
+        $data['title'] = 'User';
+        return view('user.create',$data);
+    }
+
+    public function store(Request $request)
+    {
+        $validasi = $request->validate([
+            'nama' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        $simpan = new User();
+        $simpan->nama = $validasi['nama'];
+        $simpan->email = $validasi['email'];
+        $simpan->password = $validasi['password'];
+
+        $simpan->save();
+        return redirect('user');
+    }
+
+    public function edit($id)
+    {
+
+        $data['title'] = 'User';
+        $user = User::find($id);
+        return view('user.edit', ['user' => $user], $data);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+        $user = User::find($id);
+        $data = $request->validate([
+            'nama' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+        $user->update([
+            'nama' => $data['nama'],
+            'email' => $data['email'],
+            'password' => $data['password']
+        ]);
+        return redirect()->route('user.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('user.index');
+    }
 
 
     public function register()
@@ -23,10 +98,10 @@ class UserController extends Controller
         $request->validate([
             'nama' => 'required',
             'email' => 'required|unique:users',
-            'bagian' => 'required',
             'password' => 'required',
             'password_confirm' => 'required|same:password',
         ]);
+
 
         $user = new User([
             'nama' => $request->nama,
@@ -85,6 +160,6 @@ class UserController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect('http://127.0.0.1:8000/');
     }
 }

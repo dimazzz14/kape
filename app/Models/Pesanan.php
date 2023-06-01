@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Pesanan extends Model
 {
     use HasFactory;
+    protected $guarded =[];
     protected $table = 'pesanan';
     protected $fillable = [
     'tgl_pesanan',
     'nomor_pesanan',
     'nama_pemesan',
+    'nomor_kategori',
     'nomor_barang',
     'nama_barang',
     'jenis',

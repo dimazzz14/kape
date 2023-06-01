@@ -32,7 +32,7 @@
 
         <div class="form-group">
             <label for="exampleInputtext1">Id Barang</label>
-            <input type="text" class="form-control" id="nama-barang" placeholder="" required name="nama_barang">
+            <input type="text" class="form-control" id="nomor-barang" placeholder="" required name="nomor_barang">
         </div>
 
         <div class="form-group">
@@ -44,7 +44,7 @@
             <label for="exampleInputEmail1">Jenis</label>
             <select name="kategori_id" id="kategori_id" class="form-control" required>
                 @foreach ($kategori as $item)
-                    <option value="{{ $item->nama_kategori}}">{{ $item->nama_kategori }}</option>
+                    <option value="{{ $item->id}}">{{ $item->jenis }}</option>
                 @endforeach
             </select>
         </div>
@@ -57,6 +57,12 @@
             <label for="exampleInputtext1">Jumlah</label>
             <input type="text" class="form-control" id="jumlah" placeholder="" required name="jumlah">
         </div>
+
+        <div class="form-group">
+            <label for="exampleInputtext1">Keterangan</label>
+            <input type="text" class="form-control" id="jenis" placeholder="" required name="jenis">
+        </div>
+
         <div class="d-flex justify-content-end">
             <a href="{{ URL::previous() }}" class="btn btn-warning"> <i class="fas fa-arrow-left"></i> Kembali</a>
             <button type="submit" class="btn btn-primary" style="width: 150px"><i class="fas fa-plus"></i> Tambah</button>

@@ -18,9 +18,9 @@ class CreatePesananTable extends Migration
             $table->unsignedBigInteger('kategori_id');
             $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade')->onUpdate('cascade');
             $table->date('tgl_pesanan');
-            $table->integer('nomor_pesanan');
+            $table->string('nomor_pesanan');
             $table->string('nama_pemesan');
-            $table->integer('nomor_barang');
+            $table->string('nomor_barang');
             $table->string('nama_barang');
             $table->string('jenis');
             $table->string('ukuran');
