@@ -29,9 +29,13 @@
 
         <div class="form-group">
             <label for="exampleInputtext1">Password</label>
-            <input type="text" class="form-control" id="password" value="{{  old('password')?? $user->password }}" placeholder="" required name="password">
+            <input type="text" class="form-control" id="password" placeholder="" required name="password">
         </div>
 
+        <div class="form-group">
+            <label for="exampleInputEmail1">Level</label>
+            <input type="text" class="form-control" id="level" placeholder="" required name="level">
+        </div>
         
         <div class="d-flex justify-content-end">
             <a href="{{ URL::previous() }}" class="btn btn-warning"> <i class="fas fa-arrow-left"></i> Kembali</a>

@@ -35,13 +35,16 @@
         </div>
 
         <div class="form-group">
-            <label for="exampleInputEmail1">Jenis</label>
-            <select name="kategori_id" id="kategori_id" class="form-control" required>
-                @foreach ($kategori as $item)
-                    <option value="{{ $item->id}}">{{ $item->jenis }}</option>
-                @endforeach
-            </select>
-        </div>
+                    <label for="exampleInputEmail">Jenis</label>
+                    <select name="kategori_id" id="kategori_id" class="form-control" required>
+                        <option value="{{ $barangkeluar->kategori_id }}" selected>{{ $barangkeluar->kategori->jenis }}</option>
+                        @foreach ($kategori as $item)
+                            @if ($item->id != $barangkeluar->kategori_id)
+                                <option value="{{ $item->id }}">{{ $item->jenis }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
 
         <div class="form-group">
             <label for="exampleInputtext1">Ukuran</label>

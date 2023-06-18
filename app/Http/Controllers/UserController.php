@@ -9,9 +9,21 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    public $user;
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->user = auth()->user();
+            return $next($request);
+        });
+    }
+
     
     public function index()
     {
+        $this->authorize('roleAdmin', $this->user);
         $user = User::all();
         $data = compact('user');
         return view('user.index',$data);
@@ -19,6 +31,7 @@ class UserController extends Controller
 
     public function create()
     {
+        $this->authorize('roleAdmin', $this->user);
         $user=User::all();
         $data['title'] = 'User';
         return view('user.create',$data);
@@ -26,24 +39,27 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $validasi = $request->validate([
-            'nama' => 'required',
-            'email' => 'required',
-            'password' => 'required'
+        $this->authorize('roleAdmin', $this->user);
+        $request->validate([
+            'nama' => ['required', 'string', 'max:255'],
+            'level' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required'],
         ]);
 
-        $simpan = new User();
-        $simpan->nama = $validasi['nama'];
-        $simpan->email = $validasi['email'];
-        $simpan->password = $validasi['password'];
+        $user = User::create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'level' => $request->level,
+            'password' => Hash::make($request->password),
+        ]);
 
-        $simpan->save();
         return redirect('user');
     }
 
     public function edit($id)
     {
-
+        $this->authorize('roleAdmin', $this->user);
         $data['title'] = 'User';
         $user = User::find($id);
         return view('user.edit', ['user' => $user], $data);
@@ -58,17 +74,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('roleAdmin', $this->user);
         $data = $request->all();
         $user = User::find($id);
         $data = $request->validate([
             'nama' => 'required',
             'email' => 'required',
+            'level' => 'required',
             'password' => 'required'
         ]);
         $user->update([
             'nama' => $data['nama'],
             'email' => $data['email'],
-            'password' => $data['password']
+            'level' => $data['level'],
+            'password' => Hash::make($request->password),
         ]);
         return redirect()->route('user.index');
     }
@@ -81,6 +100,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('roleAdmin', $this->user);
         $user = User::find($id);
         $user->delete();
         return redirect()->route('user.index');
@@ -89,12 +109,14 @@ class UserController extends Controller
 
     public function register()
     {
+        $this->authorize('roleAdmin', $this->user);
         $data['title'] = 'Register';
         return view('register', $data);
     }
 
     public function register_action(Request $request)
     {
+        $this->authorize('roleAdmin', $this->user);
         $request->validate([
             'nama' => 'required',
             'email' => 'required|unique:users',

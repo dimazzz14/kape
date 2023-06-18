@@ -20,7 +20,6 @@
                     <th class="align-middle">No</th>
                     <th class="align-middle">Nama</th>
                     <th class="align-middle">Email</th>
-                    <th class="align-middle">Password</th>
                     <th class="align-middle">Aksi</th>
                 </thead>
                 <tbody>
@@ -29,7 +28,6 @@
                                 <td class="align-middle">{{ $index + 1 }}</td>
                                 <td class="align-middle">{{ $item->nama }}</td>
                                 <td class="align-middle">{{ $item->email }}</td>
-                                <td class="align-middle">{{ $item->password}}</td>
                                 <td class="d-flex align-items-center justify-content-center">
                                 <a class="text-white btn btn-primary btn-sm"
                                     href="{{ route('user.edit', $item->id) }}">

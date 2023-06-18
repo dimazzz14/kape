@@ -8,11 +8,11 @@
 @endsection
 
 @section('content')
-    <h2 class="m-0">Data stok</h2>
-    
+    <h2 class="m-0">Data stok</h2>  
     <div class="card p-2" style="font-size: 12px">
             <div class="m-2 d-flex justify-content-end">
             </div>
+
         <div class="table-responsive">
             <table class="table table-sm table-bordered table-hover text-center" id="myTable">
                 <thead class="thead-light">
@@ -25,17 +25,16 @@
                     <th class="align-middle">Jumlah</th>
                 </thead>
                 <tbody>
-                    @foreach ($stok as $index => $item)
+                    @foreach ($barangmasuk as $index => $item)
                             <tr>
                                 <td class="align-middle">{{ $index + 1 }}</td>
-                                <td class="align-middle">{{ $item->tgl_stok }}</td>
-                                <td class="align-middle">{{ $item->nomor_stok }}</td>
-                                <td class="align-middle">{{ $item->nama_stok }}</td>
-                                <td class="align-middle">{{ $item->jenis_stok }}</td>
-                                <td class="align-middle">{{ $item->ukuran_stok }}</td>
-                                <td class="align-middle">{{ $item->jumlah_stok }}</td>
+                                <td class="align-middle">{{ $item->tgl_barang_masuk }}</td>
+                                <td class="align-middle">{{ $item->nomor_barang_masuk }}</td>
+                                <td class="align-middle">{{ $item->nama_barang_masuk }}</td>
+                                <td class="align-middle">{{ $item->kategori->jenis ?? '-' }}</td>                              
+                                <td class="align-middle">{{ $item->ukuran_masuk }}</td>
+                                <td class="align-middle">{{ $item->jumlah_masuk }}</td>
                                 <td class="d-flex align-items-center justify-content-center">
-                                <a class="text-white btn btn-primary btn-sm"></a>
                                 </td>
                             </tr>   
                     @endforeach

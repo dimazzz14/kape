@@ -103,47 +103,58 @@
       </div>
 
       <!-- Sidebar Menu -->
+      @if (Auth::user()->level =='1')
+      
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
+            
             <a href="{{route('stok.index')}}" class="nav-link {{request()->is('stok')? 'active':''}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard               
               </p>
             </a>
+            
           </li>
           
           <li class="nav-item">
+            
             <a href="{{route('kategori.index')}}" class="nav-link {{request()->is('kategori')? 'active':''}}">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Kategori
               </p>
             </a>
+      
           </li>
          
           <li class="nav-item">
+          
             <a href="{{route('pesanan.index')}}" class="nav-link {{request()->is('pesanan')? 'active':''}}">
               <i class="nav-icon far fa-envelope"></i>
               <p>
                 Pesanan
               </p>
             </a>
+            
           </li>
 
           <li class="nav-item">
+          
             <a href="{{route('barangmasuk.index')}}" class="nav-link {{request()->is('barangmasuk')? 'active':''}}">
               <i class="nav-icon fas fa-map-marker-alt"></i>
               <p>
                  Barang Masuk
               </p>
             </a>
+         
           </li>
 
           <li class="nav-item">
+            
             <a href="{{route('barangkeluar.index')}}" class="nav-link {{request()->is('barangkeluar')? 'active':''}}">
               <i class="nav-icon far fa-paper-plane"></i>
               <p>
@@ -152,6 +163,79 @@
             </a>
           </li>
 
+          
+      
+
+        </ul>
+      </nav>
+
+      @elseif(Auth::user()->level == '2')
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            
+            <a href="{{route('stok.index')}}" class="nav-link {{request()->is('stok')? 'active':''}}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard               
+              </p>
+            </a>
+            
+          </li>
+         
+          <li class="nav-item">
+          
+            <a href="{{route('pesanan.index')}}" class="nav-link {{request()->is('pesanan')? 'active':''}}">
+              <i class="nav-icon far fa-envelope"></i>
+              <p>
+                Pesanan
+              </p>
+            </a>
+            
+          </li>
+
+          <li class="nav-item">
+          
+            <a href="{{route('barangmasuk.index')}}" class="nav-link {{request()->is('barangmasuk')? 'active':''}}">
+              <i class="nav-icon fas fa-map-marker-alt"></i>
+              <p>
+                 Barang Masuk
+              </p>
+            </a>
+         
+          </li>
+
+          <li class="nav-item">
+            
+            <a href="{{route('barangkeluar.index')}}" class="nav-link {{request()->is('barangkeluar')? 'active':''}}">
+              <i class="nav-icon far fa-paper-plane"></i>
+              <p>
+                Barang Keluar
+              </p>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+      @else
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+        
+               <li class="nav-item">
+            
+                <a href="{{route('stok.index')}}" class="nav-link {{request()->is('stok')? 'active':''}}">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Dashboard               
+                  </p>
+                </a>
+                
+              </li>
+          
           <li class="nav-item">
             <a href="{{route('user.index')}}" class="nav-link {{request()->is('user')? 'active':''}}">
               <i class="nav-icon far fa-user"></i>
@@ -159,11 +243,13 @@
                 Manajemen Akun
               </p>
             </a>
+            
           </li>
 
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
+      @endif
     </div>
     <!-- /.sidebar -->
   </aside>

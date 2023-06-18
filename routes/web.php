@@ -69,8 +69,9 @@ Route::middleware(['auth'])->group(function(){
     Route::get('user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
     Route::patch('user/update/{id}', [UserController::class, 'update'])->name('user.update');
 
-
 });
+
+
    
 
 

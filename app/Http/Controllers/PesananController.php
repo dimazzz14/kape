@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pesanan;
 use App\Models\Kategori;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -16,10 +16,21 @@ class PesananController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public $user;
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->user = auth()->user();
+            return $next($request);
+        });
+    }
+
     public function index()
     {
         $pesanan = Pesanan::all();
-        $data = compact('pesanan');
+        $data = ['pesanan'=>$pesanan, 'user' => auth()->user() ];
         return view('pesanan.index',$data);
     }
 
@@ -62,9 +73,10 @@ class PesananController extends Controller
     public function edit($id)
     {
 
-        $data['title'] = 'Pesanan';
-        $pesanan = Pesanan::find($id);
-        return view('pesanan.edit', ['pesanan' => $pesanan], $data);
+        // $data['title'] = 'Pesanan';
+        $pesanan = Pesanan::findorfail($id);
+        $kategori = Kategori::all();
+        return view('pesanan.edit')->with('kategori',$kategori)->with('pesanan',$pesanan);
     }
 
     /**
@@ -76,10 +88,11 @@ class PesananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $pesanan = Pesanan::find($id);
+        // $data = $request->all();
+        $pesanan = Pesanan::findorfail($id);
         $data = $request->validate([
             'tgl_pesanan' => 'required',
+            'kategori_id' => 'required',
             'nomor_pesanan' => 'required',
             'nama_pemesan' => 'required',
             'nomor_barang' => 'required',
@@ -88,16 +101,16 @@ class PesananController extends Controller
             'ukuran' => 'required',
             'jumlah' => 'required'
         ]);
-        $pesanan->update([
-            'tgl_pesanan' => $data['tgl_pesanan'],
-            'nomor_pesanan' => $data['nomor_pesanan'],
-            'nama_pemesan' => $data['nama_pemesan'],
-            'nomor_barang' => $data['nomor_barang'],
-            'nama_barang' => $data['nama_barang'],
-            'jenis' => $data['jenis'],
-            'ukuran' => $data['ukuran'],
-            'jumlah' => $data['jumlah']
-        ]);
+        $pesanan->tgl_pesanan= $data['tgl_pesanan'];
+        $pesanan->kategori_id = $data['kategori_id'];
+        $pesanan->jenis = $data['jenis'];
+        $pesanan->nomor_pesanan= $data['nomor_pesanan'];
+        $pesanan->nama_pemesan = $data['nama_pemesan'];
+        $pesanan->nomor_barang= $data['nomor_barang'];
+        $pesanan->nama_barang = $data['nama_barang'];
+        $pesanan->ukuran = $data['ukuran'];
+        $pesanan->jumlah = $data['jumlah'];
+        $pesanan->save();
         return redirect()->route('pesanan.index');
     }
 

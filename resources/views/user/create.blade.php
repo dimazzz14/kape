@@ -27,6 +27,10 @@
             <input type="text" class="form-control" id="email" placeholder="" required name="email">
         </div>
 
+        <div class="form-group">
+            <label for="exampleInputEmail1">Level</label>
+            <input type="text" class="form-control" id="level" placeholder="" required name="level">
+        </div>
 
         <div class="form-group">
             <label for="exampleInputtext1">Password</label>

@@ -30,18 +30,27 @@
                         name="nomor_barang_masuk"
                         value="{{ old('nomor_barang_masuk')?? $barangmasuk->nomor_barang_masuk}}">
                 </div>
+
+
                 <div class="form-group">
                     <label for="exampleInputtext1">Nama Barang</label>
                     <input type="text" class="form-control" id="barang-masuk"
                         name="nama_barang_masuk"
                         value="{{ old('nama_barang_masuk')?? $barangmasuk->nama_barang_masuk }}">
                 </div>
+
                 <div class="form-group">
-                    <label for="exampleInputtext1">Jenis</label>
-                    <input type="text" class="form-control" id="jenis-masuk"
-                        name="jenis_masuk"
-                        value="{{ old('jenis_masuk')?? $barangmasuk->jenis_masuk}}">
+                    <label for="exampleInputEmail">Jenis</label>
+                    <select name="kategori_id" id="kategori_id" class="form-control" required>
+                        <option value="{{ $barangmasuk->kategori_id }}" selected>{{ $barangmasuk->kategori->jenis ?? '-' }}</option>
+                        @foreach ($kategori as $item)
+                            @if ($item->id != $barangmasuk->kategori_id)
+                                <option value="{{ $item->id }}">{{ $item->jenis }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 </div>
+
                 <div class="form-group">
                     <label for="exampleInputtext1">Ukuran</label>
                     <input type="text" class="form-control" id="ukuran-masuk"
@@ -59,6 +68,13 @@
                     <input type="text" class="form-control" id="pengirim-masuk"
                         name="pengirim"
                         value="{{ old('pengirim')??$barangmasuk->pengirim}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputtext1">Keterangan</label>
+                    <input type="text" class="form-control" id="jenis-masuk"
+                        name="jenis_masuk"
+                        value="{{ old('jenis_masuk')?? $barangmasuk->jenis_masuk}}">
                 </div>
 
                 <div class="d-flex justify-content-end">

@@ -13,9 +13,20 @@ class ManajemenAkunController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $user;
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->user = auth()->user();
+            return $next($request);
+        });
+    }
+
     public function index()
     {
         //
+        $this->authorize('roleAdmin', $this->user);
         $user = User::all();
         $data = compact('user');
         $data['title'] = 'Manajemen Akun';
@@ -29,6 +40,7 @@ class ManajemenAkunController extends Controller
      */
     public function create()
     {
+        $this->authorize('roleAdmin', $this->user);
         $data['title'] = 'Manajemen Akun';
         return view ('manajemenakun.create', $data);
     }
@@ -42,6 +54,7 @@ class ManajemenAkunController extends Controller
     public function store(Request $request)
     {
         // $data = $request->all();
+        $this->authorize('roleAdmin', $this->user);
         $request->validate([
             'nik' => 'required',
             'nama' => 'required',
@@ -71,6 +84,7 @@ class ManajemenAkunController extends Controller
      */
     public function show(User $user)
     {
+        $this->authorize('roleAdmin', $this->user);
         return view('user.show')->with('user', $user);
     }
 
@@ -82,6 +96,7 @@ class ManajemenAkunController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('roleAdmin', $this->user);
         $data['title'] = 'Manajemen Akun';
         $user = User::find($id);
         return view('manajemenakun.edit', ['user'=>$user], $data);
@@ -96,6 +111,7 @@ class ManajemenAkunController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('roleAdmin', $this->user);
          $request->validate([
             'password' => 'required',
             'password_confirm' => 'required|same:password',
@@ -119,6 +135,7 @@ class ManajemenAkunController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('roleAdmin', $this->user);
         // $this->authorize('delete', SuratKeluar::class);
         $user = User::find($id);
         $user->delete();

@@ -16,10 +16,21 @@ class BarangKeluarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public $user;
+
+     public function __construct()
+     {
+         $this->middleware(function ($request, $next) {
+             $this->user = auth()->user();
+             return $next($request);
+         });
+     }
+
     public function index()
     {
         $barangkeluar = BarangKeluar::all();
-        $data = compact('barangkeluar');
+        $data = ['barangkeluar'=>$barangkeluar, 'user' => auth()->user()];
         return view('barangkeluar.index',$data);
     }
 
@@ -61,10 +72,11 @@ class BarangKeluarController extends Controller
 
     public function edit($id)
     {
-
-        $data['title'] = 'Barang Keluar';
-        $barangkeluar = BarangKeluar::find($id);
-        return view('barangkeluar.edit', ['barangkeluar' => $barangkeluar], $data);
+        // $data['title'] = 'Barang Keluar';
+        $barangkeluar = BarangKeluar::findorfail($id);
+        $kategori = Kategori::all();
+        return view('barangkeluar.edit')->with('kategori',$kategori)->with('barangkeluar',$barangkeluar);
+        // return view('barangkeluar.edit', ['barangkeluar' => $barangkeluar], $data);
     }
 
     /**
@@ -76,8 +88,8 @@ class BarangKeluarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $barangkeluar = BarangKeluar::find($id);
+        // $data = $request->all();
+        $barangkeluar = BarangKeluar::findorfail($id);
         $data = $request->validate([
             'tgl_barang_keluar' => 'required',
             'kategori_id' => 'required',
@@ -89,17 +101,16 @@ class BarangKeluarController extends Controller
             'penerima' => 'required',
             'status' => 'required'
         ]);
-        $barangkeluar->update([
-            'tgl_barang_keluar' => $data['tgl_barang_keluar'],
-            'kategori_id' => $data['kategori_id'],
-            'nomor_barang_keluar' => $data['nomor_barang_keluar'],
-            'nama_barang_keluar' => $data['nama_barang_keluar'],
-            'jenis_keluar' => $data['jenis_keluar'],
-            'ukuran_keluar' => $data['ukuran_keluar'],
-            'jumlah_keluar' => $data['jumlah_keluar'],
-            'penerima' => $data['penerima'],
-            'status' => $data['status']
-        ]);
+        $barangkeluar->tgl_barang_keluar = $data['tgl_barang_keluar'];
+        $barangkeluar->kategori_id = $data['kategori_id'];
+        $barangkeluar->jenis_keluar = $data['jenis_keluar'];
+        $barangkeluar->nomor_barang_keluar = $data['nomor_barang_keluar'];
+        $barangkeluar->nama_barang_keluar = $data['nama_barang_keluar'];
+        $barangkeluar->ukuran_keluar = $data['ukuran_keluar'];
+        $barangkeluar->jumlah_keluar = $data['jumlah_keluar'];
+        $barangkeluar->penerima = $data['penerima'];
+        $barangkeluar->status = $data['status'];
+        $barangkeluar->save();
         return redirect()->route('barangkeluar.index');
     }
 

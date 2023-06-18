@@ -42,11 +42,19 @@
             <label for="exampleInputtext1">Nama Barang</label>
             <input type="text" class="form-control" id="nama-barang" placeholder="" required name="nama_barang" value="{{ old('nama_barang')?? $pesanan->nama_barang  }}">
         </div>
+
         <div class="form-group">
-            <label for="exampleInputtext1">Jenis</label>
-            <input type="text" class="form-control" id="jenis" value="{{ old('jenis')?? $pesanan->jenis  }}" placeholder=""
-                required name="jenis">
+            <label for="exampleInputEmail">Jenis</label>
+            <select name="kategori_id" id="kategori_id" class="form-control" required>
+                <option value="{{ $pesanan->kategori_id }}" selected>{{ $pesanan->kategori->jenis }}</option>
+                @foreach ($kategori as $item)
+                    @if ($item->id != $pesanan->kategori_id)
+                        <option value="{{ $item->id }}">{{ $item->jenis }}</option>
+                    @endif
+                @endforeach
+            </select>
         </div>
+
         <div class="form-group">
             <label for="exampleInputtext1">Ukuran</label>
             <input type="text" class="form-control" id="ukuran" value="{{ old('ukuran')?? $pesanan->ukuran  }}"
@@ -55,6 +63,11 @@
         <div class="form-group">
             <label for="exampleInputtext1">Jumlah</label>
             <input type="text" class="form-control" id="jumlah" placeholder="" required name="jumlah" value="{{ old('jumlah')?? $pesanan->jumlah  }}">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputtext1">Keterangan</label>
+            <input type="text" class="form-control" id="jenis" placeholder="" value="{{  old('jenis')?? $pesanan->jenis }}" required name="jenis">
         </div>
 
         

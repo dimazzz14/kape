@@ -11,8 +11,11 @@
     <h2 class="m-0">Data pesanan</h2>
     <div class="card p-2" style="font-size: 12px">
             <div class="m-2 d-flex justify-content-end">
+                @can('addButton1', $user)
                 <a type="button" class="btn btn-primary btn-sm" href="{{ url('pesanan/create') }}"><i
-                        class="fas fa-plus"></i> Tambah</a>
+                    class="fas fa-plus"></i> Tambah</a>
+                @endcan
+                
             </div>
         <div class="table-responsive">
             <table class="table table-sm table-bordered table-hover text-center" id="myTable">
@@ -43,6 +46,7 @@
                                 <td class="align-middle">{{ $item->jumlah }}</td>
                                 <td class="align-middle">{{ $item->jenis }}</td>
                                 <td class="d-flex align-items-center justify-content-center">
+                                @can('addButton1', $user)
                                 <a class="text-white btn btn-primary btn-sm"
                                     href="{{ route('pesanan.edit', $item->id) }}">
                                     <i class="fas fa-edit"></i>
@@ -52,6 +56,7 @@
                                 @method('DElETE')
                                 <button class="btn btn-danger btn-sm mx-1" type="submit"><i class="fas fa-trash"></i></button>
                                 </form>
+                                @endcan
                                 </td>
                             </tr>   
                     @endforeach

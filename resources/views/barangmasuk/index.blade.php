@@ -11,8 +11,12 @@
     <h2 class="m-0">Data barang masuk</h2>  
     <div class="card p-2" style="font-size: 12px">
             <div class="m-2 d-flex justify-content-end">
+
+                @can('addButton', $user)
                 <a type="button" class="btn btn-primary btn-sm" href="{{ url('barangmasuk/create') }}"><i
                         class="fas fa-plus"></i> Tambah</a>
+                @endcan
+
             </div>
         <div class="table-responsive">
             <table class="table table-sm table-bordered table-hover text-center" id="myTable">
@@ -36,22 +40,23 @@
                                 <td class="align-middle">{{ $item->tgl_barang_masuk }}</td>
                                 <td class="align-middle">{{ $item->nomor_barang_masuk }}</td>
                                 <td class="align-middle">{{ $item->nama_barang_masuk }}</td>
-                                <td class="align-middle">{{ $item->kategori->jenis }}</td>                              
+                                <td class="align-middle">{{ $item->kategori->jenis ?? '-' }}</td>                              
                                 <td class="align-middle">{{ $item->ukuran_masuk }}</td>
                                 <td class="align-middle">{{ $item->jumlah_masuk }}</td>
                                 <td class="align-middle">{{ $item->pengirim }}</td>
                                 <td class="align-middle">{{ $item->jenis_masuk }}</td>
                                 <td class="d-flex align-items-center justify-content-center">
+                                @can('addButton', $user)
                                 <a class="text-white btn btn-primary btn-sm"
                                     href="{{ route('barangmasuk.edit', $item->id) }}">
                                     <i class="fas fa-edit"></i>
                                 </a>
-
                                 <form action="{{ route('barangmasuk.destroy', $item->id) }}" method="POST">
                                 @csrf
                                 @method('DElETE')
                                 <button class="btn btn-danger btn-sm mx-1" type="submit"><i class="fas fa-trash"></i></button>
                                 </form>
+                                @endcan
                                 </td>
                             </tr>   
                     @endforeach
